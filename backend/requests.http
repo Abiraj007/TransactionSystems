@@ -1,0 +1,35 @@
+###
+GET http://localhost:3000/
+
+###
+GET http://localhost:3000/transactions
+
+###
+GET http://localhost:3000/transactions/165
+
+###
+POST http://localhost:3000/transactions/send
+Content-Type: application/json
+
+{
+  "id": 165,
+  "amount": 5634.25,
+  "currency": "USD",
+  "description": "Coffee shop purchase",
+  "timestamp": "2026-08-18T09:30:00.000Z",
+  "metadata": {
+    "vendor": "BrewTime",
+    "category": "food"
+  },
+  "status":"pending"
+}
+
+
+###
+POST http://localhost:3000/cleanup
+
+###
+
+GET http://localhost:3000/api/health
+
+###
