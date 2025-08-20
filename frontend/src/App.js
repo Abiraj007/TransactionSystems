@@ -94,9 +94,7 @@ function App() {
         setFormData({
         id: '',
         amount: '',
-        currency: '',
-        description: '',
-        metadata: ''
+        description: ''
       });
       }
       setError('');

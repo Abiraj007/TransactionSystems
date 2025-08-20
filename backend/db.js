@@ -4,7 +4,7 @@ const { Pool } = require("pg");
 const pool = new Pool({
   user: process.env.PGUSER || 'postgres',       
   host: process.env.PGHOST || 'localhost',  // CHANGED: Use environment variable
-  database: process.env.PGDATABASE || 'myproject',   
+  database: process.env.PGDATABASE || 'transactions',    
   password: process.env.PGPASSWORD || 'Abiraj007',   
   port: process.env.PGPORT || 5432,
   // Add connection timeout

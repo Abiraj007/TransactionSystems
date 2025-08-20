@@ -19,7 +19,7 @@ services:
     environment:
       - PGUSER=postgres
       - PGHOST=db
-      - PGDATABASE=myproject
+      - PGDATABASE=myproject  # Changed to match your DB name
       - PGPASSWORD=Abiraj007
       - PGPORT=5432
       - REDIS_HOST=redis
@@ -28,17 +28,17 @@ services:
       - db
       - redis
 
-  # PostgreSQL database
+  # PostgreSQL database - REMOVED THE EXTRA "services:" LINE
   db:
     image: postgres:13-alpine
+    volumes:
+      - ./backend/database/init.sql:/docker-entrypoint-initdb.d/init.sql
     environment:
-      - POSTGRES_DB=myproject
+      - POSTGRES_DB=myproject   # ← This automatically creates the database!
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=Abiraj007
     ports:
       - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
 
   # Redis for Bull queue
   redis:
